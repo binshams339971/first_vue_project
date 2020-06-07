@@ -3,13 +3,13 @@
     <Navbar @searchItem="search" @cartRemovedItem="removeCartItem" :items="cart"></Navbar>
       <div class="container">
         <div class="row">
-          <div class="col-sm-9">
+          <div class="col-sm-12">
             <router-view></router-view>
            <!-- <Inventory @cartItemAdded="addCartItem" :items="items"></Inventory> -->
           </div>
-          <div class="col-sm-3">
+          <!--<div class="col-sm-3">
             <Cart @cartItemRemoved="removeCartItem" :items="cart"></Cart>
-          </div>
+          </div>-->
         </div>
     </div>
   </div>
@@ -62,6 +62,6 @@ export default {
     padding-top: 10px;
   }
   .card{
-    margin: 5px;
+    margin: 20px;
   }
 </style>

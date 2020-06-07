@@ -22,8 +22,11 @@
 
 <script>
 export default {
-    props: ['items'],
+    //props: ['items'],
     computed:{
+        items(){
+            return this.$store.getters.getCart
+        },
         totalPrice(){
             var total = 0
             this.items.forEach(a => {
@@ -34,7 +37,8 @@ export default {
     },
     methods:{
         removeItem(index){
-            this.$emit("cartItemRemoved", index)
+            //this.$emit("cartItemRemoved", index)
+            this.$store.commit('removeItem', index)
         }
     }
 }

@@ -8,7 +8,7 @@
                 </div>
             </router-link>
             <div class="card-footer">
-                <p class="card-text">${{ item.price }}</p>
+                <span class="card-text">${{ item.price }}</span>
                 <a @click="addToCart(item)" class="btn btn-primary">Add</a>
             </div>
         </div>          
@@ -22,8 +22,15 @@ export default {
     //props: ['items'],
     data(){
         return{
-            loading: true,
-            items: []
+            loading: true  
+        }
+    },
+    computed:{
+        items(){
+            return this.$store.getters.getInventory
+        },
+        cart(){
+            return this.$store.getters.getCart
         }
     },
     mounted(){
@@ -31,18 +38,37 @@ export default {
     },
     methods:{
         addToCart(item){
-            this.$emit('cartItemAdded', item)
+            let a = false
+            if(this.cart.length == 0){
+                this.$store.commit('addToCart', item)
+            }else{
+                this.cart.forEach(i => {
+                    if(i.id == item.id){
+                        a = true
+                    }
+                    else{
+                        
+                    }
+                });
+                if(a == false){
+                    this.$store.commit('addToCart', item)
+                }else{
+                    alert("Item already added!")
+                }
+                
+            }
+            //this.$emit('cartItemAdded', item)
+            //this.$store.commit('addToCart', item)
         },
         fetchInventory(){
             var self = this
             axios.get('https://262f5a2f-eed5-492a-a5f0-99a73f4120a5.mock.pstmn.io/items').then(response =>(
                 setTimeout(function(){
-                    self.items = response.data,
+                    self.$store.commit('setInventory', response.data)
                     self.loading = false
-                }, 5)
-                
+                }, 5)  
             ))
-        }
+        },
     }
 }
 </script>
