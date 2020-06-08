@@ -29,6 +29,13 @@
                             <li v-for="(item, index) in items" :key="index" class="list-group-item">
                                 <button class="btn btn-xs btn-danger" @click="removeItem(index)">-</button>
                                 <span class="item-name">{{ item.title }}</span>
+                                <!-- <span class="btn btn-xs btn-info" id="element1">-</span>
+                                <span class="item-name" id="element2"><input type="text" class="form-control" value="1" style="width: 30px; height: 20px"></span>
+                                <span class="btn btn-xs btn-info" id="element3">+</span> -->
+                                <input type="button" id="element1" class="btn btn-default" value="-" @click="sub">
+                                <input type="text" id="element2" v-model="c" class="form-control col-2">
+                                <input type="button" id="element3" class="btn btn-default" value="+" @click="add">
+                               
                                 <span class="item-price float-right">${{ item.price }}</span>
                             </li>
 
@@ -58,7 +65,8 @@ export default {
     //props: ['items'],
     data(){
         return{
-            keyword: ''
+            keyword: '',
+            c: '1'
         }
     },
     computed:{
@@ -85,12 +93,30 @@ export default {
             if(confirm('Are you sure you want to checkout?')){
                 this.$store.commit('clearCart')
             }
+        },
+        sub(){
+            if(this.c>1)
+            {
+                this.c--
+            }
+        },
+        add(){
+            this.c++
         }
     }
 }
 </script>
 
 <style>
+    #element1 {
+        display:inline-block;     
+        margin-left:60px;
+    } 
+    #element2 {
+        display:inline-block; 
+        text-align: center;
+    }
+    
     h2{
         width: 250px;
     }
