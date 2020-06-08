@@ -8,7 +8,7 @@
     <!--<button class="btn btn-outline-success my-2 my-sm-2 bg-dark" data-toggle="modal" data-target="#exampleModalLong" style="border: none;"><i class="fas fa-shopping-cart fa-2x text-success"></i></button>
         <span class='badge badge-warning' id='lblCartCount'> {{ items.length }} </span> -->
         <hr id="a1">
-        <i class="fa fa-user fa-2x text-success float-sm-right" id="user" aria-hidden="true"></i>
+        <router-link :to="{ path: '/user/login' }"><i class="fa fa-user fa-2x text-success float-sm-right" id="user" aria-hidden="true"></i></router-link>
         <div class="vl"></div>
         <div class="cart">
             <i class="fas fa-shopping-cart fa-2x text-success float-sm-right" id="a" data-toggle="modal" data-target="#exampleModalLong"></i>
