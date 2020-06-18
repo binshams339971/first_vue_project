@@ -27,10 +27,16 @@
                         :class="{ 'is-invalid': $v.phone.$error, 'is-valid': !$v.phone.$invalid }">
                         <div class="invalid-feedback text-left" style="line-height: 0;">
                             <span v-if="!$v.phone.required">Phone is required.</span>
-                            <span v-if="!$v.phone.minLength"></span>
-                            <span v-if="$v.phone.required"><span v-if="!$v.phone.phoneValid">Phone number is not valid</span></span>
-                            
                         </div>
+                        <div class="invalid-feedback text-left" style="line-height: 0;">
+                            <span v-if="$v.phone.required"><span v-if="!$v.phone.phoneValid">Phone number is not valid </span></span>
+                        </div>
+                        <!-- <span v-if="$v.phone.required"><span v-if="!$v.phone.phoneValid"><br></span></span>
+                        <div class="invalid-feedback text-left" style="line-height: 0;">
+                            <span v-if="!$v.phone.minLength">Phone must have atleast {{$v.phone.$params.minLength.min}} letters.</span>
+                          
+                        </div> -->
+                        
                     </div>
                     
                     <div class="form-group" :class="{ 'form-group--error': $v.password.$error }">
