@@ -7,16 +7,20 @@
     </form>
     <!--<button class="btn btn-outline-success my-2 my-sm-2 bg-dark" data-toggle="modal" data-target="#exampleModalLong" style="border: none;"><i class="fas fa-shopping-cart fa-2x text-success"></i></button>
         <span class='badge badge-warning' id='lblCartCount'> {{ items.length }} </span> -->
+    
         <hr id="a1">
-        <router-link :to="{ path: '/user/login' }"><i class="fa fa-user fa-2x text-success float-sm-right" id="user" aria-hidden="true"></i></router-link>
+        <router-link :to="{ path: '/user/login' }"><i class="fa fa-user fa-2x text-success float-sm-right" id="user"></i></router-link>
         <div class="vl"></div>
+
         <div class="cart">
             <i class="fas fa-shopping-cart fa-2x text-success float-sm-right" id="a" data-toggle="modal" data-target="#exampleModalLong"></i>
             <span class='badge badge-warning' id='lblCartCount'> {{ items.length }} </span>
         </div>
-<!-- Modal -->
+
+
+<!-- Modal Cart -->
             <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog" role="document" id="md">
                     <div class="modal-content">
                     <div class="modal-header">
                         <h3 class="modal-title" id="exampleModalLongTitle">Cart</h3>
@@ -109,6 +113,7 @@ export default {
 
 <style>
     #element1 {
+       
         display:inline-block;     
         margin-left:60px;
     } 
@@ -124,6 +129,14 @@ export default {
         width:350px;
         margin-left: 150px;
         
+    }
+    #sign{
+        width: 90px;
+        margin-left: 200px;
+    }
+     #register{
+        
+        margin-left: 150px;
     }
     .vl {
         border-left: 4px solid rgb(192, 194, 192);
@@ -141,7 +154,7 @@ export default {
         padding-right: 80px;
     }
     
-    .modal-dialog {
+    #md {
         position: absolute;
         top: 50px;
         right: 0px;

@@ -8,6 +8,7 @@
     <li v-for="(item, index) in items" :key="index" class="list-group-item">
         <button class="btn btn-xs btn-danger" @click="removeItem(index)">-</button>
         <span class="item-name">{{ item.title }}</span>
+        <span class="item-name">{{ item.title }}</span>
         <span class="item-name">-</span>
         <span class="item-price float-right">${{ item.price }}</span>
     </li>
